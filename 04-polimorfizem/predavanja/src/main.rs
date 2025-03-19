@@ -1,6 +1,57 @@
 use std::cmp::Ordering;
 use std::cmp::PartialOrd;
+use std::ops::{Add, Mul};
 use std::fmt::Display;
+use std::process::Output;
+
+struct AZ<T> {
+    fst: T,
+    curr: T,
+    d: T
+}
+
+// use AritmeticnoZaporedje as AZ ;
+
+impl <T: Copy + Add<Output = T> + Mul<Output = T>> AZ<T> {
+    fn new(st: T, k: T) -> AZ<T> {
+        return AZ {fst: st, curr : st, d: k}
+    }
+
+
+    fn next(&mut self) -> T {
+        // let dig = self.curr
+        let pr = self.curr;
+        self.curr = self.curr + self.d;
+        return pr;
+    }
+
+    fn n_th(&self, n: u32) -> T{
+        // let mut s = self.fst
+        // for i in 1..n {
+        //     s = 
+        // }
+        panic!()
+        // return self.fst + self.d * n
+    }
+    fn reset(&mut self){
+        self.curr = self.fst;
+    }
+
+    fn curr(&self) -> T {
+        return self.curr;
+    }
+    fn sum(&self, n: i32) -> T {
+        // let mut s = 0;
+        let s = self.fst;
+        for i in 1..n {
+            s = s + self.n_th(i);
+        }
+        return s;
+    }
+    fn vsota(zap: &AZ<T>, sap: &AZ<T>) -> AZ<T> {
+        return AZ::new(zap.fst + sap.fst, zap.d + sap.d)
+    }
+}
 
 fn prestej_i32(v: &Vec<i32>) -> i32 {
     let mut stevilo = 0;
