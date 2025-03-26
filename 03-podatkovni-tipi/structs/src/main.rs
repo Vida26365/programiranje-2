@@ -12,6 +12,9 @@ struct GeometrijskoZaporedje {
 use AritmeticnoZaporedje as AZ ;
 use GeometrijskoZaporedje as GZ;
 
+
+
+
 impl AZ {
     fn new(st: i32, k: i32) -> AZ {
         return AZ {fst: st, curr : st, d: k}
@@ -80,6 +83,8 @@ impl GZ {
     fn produkt(zap :&GZ, sap: &GZ) -> GZ {
         return GZ::new(zap.fst * sap.fst, zap.d * sap.d);
     }
+
+    fn 
 }
 
 
